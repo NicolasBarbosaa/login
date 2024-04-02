@@ -10,11 +10,11 @@ class UserController {
 
   void login(BuildContext context, String nome, String senha) {
     print('chegamos aqui');
-    var user = userDataBase.users;
+    
 
     /*uso o iterador para percorrer a lista e verificar se existe o nome passado
   e armazeno o resultado desse iteração na variável resultado*/
-    var resultado = user.indexWhere((item) => item.name == nome);
+    var resultado = UserDataBase.users.indexWhere((item) => item.name == nome);
     print(resultado);
 
     if (resultado == -1) {
@@ -26,7 +26,7 @@ class UserController {
       );
     }
 
-    if (user[resultado].password == senha) {
+    if (UserDataBase.users[resultado].password == senha) {
       /*o 'pushAndRemoveUtil' serve para colocar o prato de cima embaixo, pq no mobile o sistema que se usa é de empilhamento de pratos
   ent, qnd eu logo, ele volta para pagina logada se tornando a base */
       Navigator.pushAndRemoveUntil(
@@ -44,36 +44,36 @@ class UserController {
     }
   }
 
-  // Método para realizar o cadastro
-  void cadastrar(BuildContext context, String nome, String senha) {
-  // Verificar se o nome de usuário já existe
-  if (userDataBase.users.any((user) => user.name == nome)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        backgroundColor: Colors.red,
-        content: Text('Nome de usuário já está em uso'),
-      ),
-    );
-  } else {
-    // Adicionar o novo usuário ao banco de dados
-    userDataBase.addUser(UserModel(name: nome, password: senha));
+//   // Método para realizar o cadastro
+//   void cadastrar(BuildContext context, String nome, String senha) {
+//   // Verificar se o nome de usuário já existe
+//   if (userDataBase.users.any((user) => user.name == nome)) {
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       const SnackBar(
+//         backgroundColor: Colors.red,
+//         content: Text('Nome de usuário já está em uso'),
+//       ),
+//     );
+//   } else {
+//     // Adicionar o novo usuário ao banco de dados
+//     userDataBase.addUser(UserModel(name: nome, password: senha));
 
-    // Mostrar mensagem de sucesso
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        backgroundColor: Colors.green,
-        content: Text('Cadastro realizado com sucesso'),
-      ),
-    );
+//     // Mostrar mensagem de sucesso
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       const SnackBar(
+//         backgroundColor: Colors.green,
+//         content: Text('Cadastro realizado com sucesso'),
+//       ),
+//     );
 
-    // Passar os dados do novo usuário para a tela de login
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (_) => Login(newUser: UserModel(name: nome, password: senha))),
-      (route) => false,
-    );
-  }
-}
+//     // Passar os dados do novo usuário para a tela de login
+//     Navigator.pushAndRemoveUntil(
+//       context,
+//       MaterialPageRoute(builder: (_) => Login(newUser: UserModel(name: nome, password: senha))),
+//       (route) => false,
+//     );
+//   }
+// }
 
 
 
