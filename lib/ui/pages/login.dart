@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:login_cadastro/controller/user_controller.dart';
+import 'package:login_cadastro/User/controller/user_controller.dart';
 import 'package:login_cadastro/ui/pages/cadastro.dart';
 import 'package:login_cadastro/ui/widgets/myAppBar.dart';
 
-import '../../model/user_model.dart';
+import '../../User/model/user_model.dart';
 
 class Login extends StatefulWidget {
   final UserModel? newUser;

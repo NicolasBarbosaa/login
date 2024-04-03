@@ -1,9 +1,9 @@
 import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
-import 'package:login_cadastro/controller/user_controller.dart';
-import 'package:login_cadastro/database/user_database.dart';
-import 'package:login_cadastro/model/user_model.dart';
+import 'package:login_cadastro/User/controller/user_controller.dart';
+import 'package:login_cadastro/User/database/user_database.dart';
+import 'package:login_cadastro/User/model/user_model.dart';
 import 'package:login_cadastro/ui/pages/login.dart';
 
 class Cadastro extends StatelessWidget {
@@ -36,10 +36,10 @@ class Cadastro extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                if (nomeController.text.isNotEmpty && senhaController.text.isNotEmpty) {
-
-                  if (UserDataBase.users.any((user) => user.name == nomeController.text)) {
-
+                if (nomeController.text.isNotEmpty &&
+                    senhaController.text.isNotEmpty) {
+                  if (UserDataBase.users
+                      .any((user) => user.name == nomeController.text)) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         backgroundColor: Colors.red,

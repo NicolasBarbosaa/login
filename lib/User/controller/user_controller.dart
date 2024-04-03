@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_cadastro/database/user_database.dart';
+import 'package:login_cadastro/User/database/user_database.dart';
 import 'package:login_cadastro/ui/pages/HomePage.dart';
 import 'package:login_cadastro/ui/pages/login.dart';
 

@@ -1,4 +1,4 @@
-import 'package:login_cadastro/model/user_model.dart';
+import 'package:login_cadastro/User/model/user_model.dart';
 
 class UserDataBase {
   static List<UserModel> users = [
