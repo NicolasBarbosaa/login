@@ -17,7 +17,7 @@ class Cadastro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(50, 252, 236, 221),
+      backgroundColor: Colors.white,
       appBar: AppBar(title: Text('')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

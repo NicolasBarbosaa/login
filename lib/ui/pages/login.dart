@@ -34,7 +34,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(50, 252, 236, 221),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(18.0),
         child: Column(
@@ -75,7 +75,7 @@ class _LoginState extends State<Login> {
                   userController.login(
                       context, nomeController.text, senhaController.text);
                 },
-                style: ElevatedButton.styleFrom(
+                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 255, 103, 1),
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
