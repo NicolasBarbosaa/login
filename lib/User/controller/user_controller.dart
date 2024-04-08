@@ -21,7 +21,7 @@ class UserController {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           backgroundColor: Colors.red,
-          content: Text('Usuário ou senha inválidos'),
+          content: Text('usuario ou Senha invalida'),
         ),
       );
     }
@@ -38,7 +38,7 @@ class UserController {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           backgroundColor: Colors.red,
-          content: Text('Usuário ou senha inválidos'),
+          content: Text('Senha invalida'),
         ),
       );
     }

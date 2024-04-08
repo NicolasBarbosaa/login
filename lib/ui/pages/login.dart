@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:login_cadastro/User/controller/user_controller.dart';
-import 'package:login_cadastro/User/model/user_model.dart';
 import 'package:login_cadastro/ui/pages/cadastro.dart';
 import 'package:login_cadastro/ui/widgets/myAppBar.dart';
 
+import '../../User/model/user_model.dart';
 
 class Login extends StatefulWidget {
   final UserModel? newUser;
@@ -34,87 +34,46 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: Column(
-          children: [
-            Container(
-              width: 300,
-              height: 300,
-              child: Image.asset('assets/NikoStudie.png'),
-            ),
-           
-            TextFormField(
-              controller: nomeController,
-              decoration: const InputDecoration(
-                hintText: 'Usuário',
-                border: OutlineInputBorder(
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            TextFormField(
-              controller: senhaController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                hintText: 'Senha',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              width: 1000,
-              height: 50,
-              child: ElevatedButton(
+      appBar: MyAppBar(texto: 'Login'),
+      body: Column(
+        children: [
+          TextFormField(
+            controller: nomeController,
+            decoration: const InputDecoration(
+                hintText: 'Usuario', border: OutlineInputBorder()),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          TextFormField(
+            controller: senhaController,
+            obscureText: true,
+            decoration: const InputDecoration(
+                hintText: 'Senha', border: OutlineInputBorder()),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Row(
+            children: [
+              ElevatedButton(
                 onPressed: () {
                   userController.login(
                       context, nomeController.text, senhaController.text);
                 },
-                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 255, 103, 1),
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ) 
-                ),
-                
-                child: const Text('Login', style: TextStyle(fontWeight: FontWeight.bold),),
+                child: const Text('Login  '),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              width: 1000,
-              height: 50,
-              child: ElevatedButton(
-                
+              ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => Cadastro()),
-                          
                   );
                 },
-                style: ElevatedButton.styleFrom(
-                  
-                  backgroundColor: Colors.white,
-                  foregroundColor: Color.fromARGB(255, 255, 103, 1),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: const BorderSide(width: 1.0, color: Color.fromARGB(255, 255, 103, 1))
-                  )
-                ),
-                  
-                child: const Text('Cadastro', style: TextStyle(fontWeight: FontWeight.bold)),
+                child: const Text('Cadastro  '),
               ),
-            )
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
